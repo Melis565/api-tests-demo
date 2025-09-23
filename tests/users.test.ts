@@ -48,7 +48,7 @@ describe('/users tests', () => {
   it('should /users return empty object for non-existing user', async () => {
     const response = await request(jsonPlaceholderBaseUrl).get('/users');
     const usersCount = response.body.length;
-    const response2 = await request(jsonPlaceholderBaseUrl).get('/comments/?postId=' + (usersCount + 1));
+    const response2 = await request(jsonPlaceholderBaseUrl).get('/users/' + (usersCount + 1));
 
     expect(response2.body).toEqual({});
 
