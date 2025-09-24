@@ -53,4 +53,15 @@ describe('/posts tests', () => {
     expect(response.body).toHaveProperty('userId', 1);
   });
 
+ it('should /delete endpoint return 200', async () => {
+    const response = await request(jsonPlaceholderBaseUrl).delete('/posts/1');
+
+    expect(response.status).toBe(200);
+  });
+
+  it('should /delete return an empty object', async () => {
+    const response = await request(jsonPlaceholderBaseUrl).delete('/posts/1');
+
+    expect(response.body).toEqual({});
+  })
 });
